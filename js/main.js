@@ -13,3 +13,16 @@ function myFunction() {
       moreText.style.display = "inline";
     }
   }
+const disabledKeys =["c","C","x","J","u","I"];
+const showAlert = (e) =>{
+  e.preventDefault();
+  return alert("Are Sir/Mam, Kya kar rahe ho? Aise chupke se Copy to na karo na..!");
+};
+document.addEventListener("contextmenu", (e) =>{
+  showAlert(e);
+})
+document.addEventListener("keydown", (e) => {
+  if ((e.ctrlKey && disabledKeys.includes(e.key)) || e.key === "F12"){
+    showAlert(e);
+  };
+});
